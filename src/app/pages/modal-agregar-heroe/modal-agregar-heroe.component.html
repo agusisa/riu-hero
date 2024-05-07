@@ -1,0 +1,74 @@
+<h2 mat-dialog-title>{{ edicion ? "Editar Héroe" : "Agregar Nuevo Héroe" }}</h2>
+<div mat-dialog-content>
+  <form [formGroup]="heroeForm" (ngSubmit)="anadirHeroe()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" required />
+      <mat-error *ngIf="heroeForm?.get('nombre')?.hasError('required')"
+        >Nombre requerido</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Poder</mat-label>
+      <input matInput formControlName="poder" required />
+      <mat-error *ngIf="heroeForm?.get('poder')?.hasError('required')"
+        >Poder requerido</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Edad</mat-label>
+      <input matInput formControlName="edad" required />
+      <mat-error *ngIf="heroeForm?.get('edad')?.hasError('required')"
+        >Edad requerida</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Planeta de Origen</mat-label>
+      <input matInput formControlName="planetaOrigen" required />
+      <mat-error *ngIf="heroeForm?.get('planetaOrigen')?.hasError('required')"
+        >Planeta de origen requerido</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Archienemigo</mat-label>
+      <input matInput formControlName="archienemigo" required />
+      <mat-error *ngIf="heroeForm?.get('archienemigo')?.hasError('required')"
+        >Archienemigo requerido</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Estatura</mat-label>
+      <input matInput formControlName="estatura" required />
+      <mat-error *ngIf="heroeForm?.get('estatura')?.hasError('required')"
+        >Estatura requerida</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Punto Débil</mat-label>
+      <input matInput formControlName="puntoDebil" required />
+      <mat-error *ngIf="heroeForm?.get('puntoDebil')?.hasError('required')"
+        >Punto débil requerido</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Origen de sus poderes</mat-label>
+      <input matInput formControlName="origenPoderes" required />
+      <mat-error *ngIf="heroeForm?.get('origenPoderes')?.hasError('required')"
+        >Origen de poderes requerido</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cerrar()">Cancelar</button>
+  <button mat-button [disabled]="!heroeForm.valid" (click)="anadirHeroe()">
+    {{ edicion ? "Editar" : "Agregar" }}
+  </button>
+</div>
