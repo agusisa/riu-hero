@@ -1,0 +1,96 @@
+<mat-toolbar color="primary">
+  <span>Lista de Superhéroes</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="accent" (click)="abrirModal()">
+    Añadir Héroe
+  </button>
+</mat-toolbar>
+
+<mat-form-field class="filter" appearance="outline">
+  <mat-label>Buscar</mat-label>
+  <input
+    matInput
+    (input)="aplicarFiltro($event)"
+    placeholder="Filtrar héroes"
+  />
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.nombre }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="poder">
+    <th mat-header-cell *matHeaderCellDef>Poder</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.poder }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="edad">
+    <th mat-header-cell *matHeaderCellDef>Edad</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.edad }} años</td>
+  </ng-container>
+
+  <ng-container matColumnDef="planetaOrigen">
+    <th mat-header-cell *matHeaderCellDef>Planeta de Origen</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.planetaOrigen }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="archienemigo">
+    <th mat-header-cell *matHeaderCellDef>Archienemigo</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.archienemigo }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="estatura">
+    <th mat-header-cell *matHeaderCellDef>Estatura (cm)</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.estatura }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="puntoDebil">
+    <th mat-header-cell *matHeaderCellDef>Punto Débil</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.puntoDebil }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="origenPoderes">
+    <th mat-header-cell *matHeaderCellDef>Origen de Poderes</th>
+    <td mat-cell *matCellDef="let heroe">{{ heroe.origenPoderes }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="editar">
+    <th mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let heroe">
+      <button
+        mat-icon-button
+        color="primary"
+        (click)="editarHeroe(heroe); $event.stopPropagation()"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrar">
+    <th mat-header-cell *matHeaderCellDef>Borrar</th>
+    <td mat-cell *matCellDef="let heroe">
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="abrirConfirmacionBorrado(heroe.id); $event.stopPropagation()"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let heroe; columns: displayedColumns"
+    (click)="seleccionarHeroe(heroe.id)"
+  ></tr>
+</table>
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+></mat-paginator>
