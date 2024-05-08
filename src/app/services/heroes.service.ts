@@ -90,7 +90,7 @@ export class HeroesService {
 
   registrarHeroe(heroe: Heroe): Observable<boolean> {
     try {
-      this.heroes.push({ ...heroe, id: this.heroes.length });
+      this.heroes.push({ ...heroe, id: this.heroes.length + 1 });
       return of(true);
     } catch (error) {
       return of(false);
@@ -129,6 +129,13 @@ export class HeroesService {
     if (index !== -1) {
       this.heroes.splice(index, 1);
     }
+    this.reasignarIds();
     return of(this.heroes);
+  }
+
+  private reasignarIds(): void {
+    this.heroes.forEach((heroe, index) => {
+      heroe.id = index + 1;
+    });
   }
 }
