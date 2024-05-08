@@ -58,10 +58,6 @@ export class ListaSuperheroesComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  editarHeroe(heroe: Heroe) {
-    this.abrirModal(heroe);
-  }
-
   abrirConfirmacionBorrado(heroeId: number): void {
     const dialogRef = this.dialog.open(ConfirmarBorradoComponent);
 
