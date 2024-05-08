@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Heroe } from 'src/app/models/heroe.model';
 import { HeroesService } from 'src/app/services/heroes.service';
 import { MatPaginator } from '@angular/material/paginator';
-import { ModalAgregarHeroeComponent } from '../modal-agregar-heroe/modal-agregar-heroe.component';
+import { ModalAgregarHeroeComponent } from '../../components/modal-agregar-heroe/modal-agregar-heroe.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmarBorradoComponent } from 'src/app/components/confirmar-borrado/confirmar-borrado.component';

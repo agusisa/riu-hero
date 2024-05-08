@@ -15,7 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { ModalAgregarHeroeComponent } from './pages/modal-agregar-heroe/modal-agregar-heroe.component';
+import { ModalAgregarHeroeComponent } from './components/modal-agregar-heroe/modal-agregar-heroe.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
